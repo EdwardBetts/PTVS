@@ -73,7 +73,7 @@ namespace Microsoft.PythonTools.Project {
         }
 
         public override string Name {
-            get { return Strings.PythonGeneralPropertyPageLabel; }
+            get { return "General"; }
         }
 
         public override void Apply() {

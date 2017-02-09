@@ -38,7 +38,7 @@ namespace Microsoft.PythonTools.Project {
         private string _caption;
         private readonly string _path;
 
-        protected BaseSearchPathNode(PythonProjectNode project, string path, ProjectElement element)
+        public BaseSearchPathNode(PythonProjectNode project, string path, ProjectElement element)
             : base(project, element) {
             _project = project;
             _path = PathUtils.TrimEndSeparator(path);

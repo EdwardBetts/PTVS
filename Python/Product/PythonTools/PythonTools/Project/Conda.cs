@@ -115,7 +115,7 @@ namespace Microsoft.PythonTools.Project {
 
             var condaFactory = await TryGetCondaFactoryAsync(factory, service); ;
             if (condaFactory == null) {
-                throw new InvalidOperationException(Strings.CannotFindConda);
+                throw new InvalidOperationException("Cannot find conda");
             }
             condaFactory.ThrowIfNotRunnable();
 

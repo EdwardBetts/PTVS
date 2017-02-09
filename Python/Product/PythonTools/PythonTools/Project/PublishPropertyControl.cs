@@ -18,7 +18,6 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.PythonTools.Infrastructure;
 using Microsoft.VisualStudioTools;
 using Microsoft.VisualStudioTools.Project;
 
@@ -41,7 +40,7 @@ namespace Microsoft.PythonTools.Project {
                 kinds = FormatPublishers(publishers);
             }
 
-            _publishLocationLabel.Text = Strings.PublishPropertyControl_LocationLabel.FormatUI(kinds);
+            _publishLocationLabel.Text = "Publishing folder location (" + kinds + "): ";
         }
 
         private static string FormatPublishers(IProjectPublisher[] publishers) {
@@ -50,9 +49,9 @@ namespace Microsoft.PythonTools.Project {
                 res.Append(publishers[i].DestinationDescription);
 
                 if (i == publishers.Length - 2) {
-                    res.Append(Strings.PublishPropertyControl_LocationTypeSeparatorLast);
+                    res.Append(" or ");
                 } else if (i != publishers.Length - 1) {
-                    res.Append(Strings.PublishPropertyControl_LocationTypeSeparator);
+                    res.Append(", ");
                 }
             }
             return res.ToString();

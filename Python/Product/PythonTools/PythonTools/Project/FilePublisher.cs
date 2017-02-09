@@ -23,6 +23,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.PythonTools.Infrastructure;
 using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudioTools;
 using Microsoft.VisualStudioTools.Project;
 
 namespace Microsoft.PythonTools.Project {
@@ -74,7 +75,7 @@ namespace Microsoft.PythonTools.Project {
 
                     if (netAddRes != 0) {
                         string msg = Marshal.GetExceptionForHR((int)(((uint)0x80070000) | netAddRes)).Message;
-                        throw new Exception(Strings.FilePublisherIncorrectUsernameOrPassword.FormatUI(msg));
+                        throw new Exception("Incorrect user name or password: " + msg);
                     }
 
                     // re-try the file copy now that we're authenticated
@@ -113,9 +114,13 @@ namespace Microsoft.PythonTools.Project {
             }
         }
 
-        public string DestinationDescription => Strings.FilePublisherDestinationDescription;
+        public string DestinationDescription {
+            get { return "file path"; }
+        }
 
-        public string Schema => "file";
+        public string Schema {
+            get { return "file"; }
+        }
 
         #endregion
     }

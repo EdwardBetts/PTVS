@@ -20,7 +20,7 @@ using System.ComponentModel;
 namespace Microsoft.PythonTools.Project {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Field, Inherited = false, AllowMultiple = false)]
     internal sealed class SRDisplayNameAttribute : DisplayNameAttribute {
-        private readonly string _name;
+        string _name;
 
         public SRDisplayNameAttribute(string name) {
             _name = name;

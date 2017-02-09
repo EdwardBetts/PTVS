@@ -51,7 +51,7 @@ namespace Microsoft.PythonTools.Project {
         }
 
         public override string Name {
-            get { return Strings.PythonPublishPropertyPageLabel; }
+            get { return "Publish"; }
         }
     }
 }
